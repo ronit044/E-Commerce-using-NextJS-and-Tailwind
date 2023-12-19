@@ -1,6 +1,7 @@
+import ImageSlider from "@/components/Home-page-Slider/Slider";
 
 export default function Home() {
   return (
-    <p>hello</p>
+    <ImageSlider/>
   )
 }
