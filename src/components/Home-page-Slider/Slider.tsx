@@ -14,7 +14,7 @@ type sliderTypeUI={
 
 const ImageSlider = () => {
   return (
-    <div className='relative mx-auto overflow-hidden'>
+    <div className='relative overflow-hidden'>
       <Carousel 
         autoPlay 
         infiniteLoop 

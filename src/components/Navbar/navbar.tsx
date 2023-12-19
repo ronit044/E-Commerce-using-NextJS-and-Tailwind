@@ -11,7 +11,7 @@ type uis = { Name: string, link: string, Dropdown: xyz[] | null }
 
 const NavBar:React.FC=()=>{
     return (
-        <div className="bg-black space-x-2 w-screen h- flex justify-center items-center  z-50 sticky">
+        <div className="bg-black space-x-2 w-screen h- flex justify-center items-center z-50 sticky top-0">
             <div className="flex gap-5 p-1">
             {Nvbr.map((ele:uis)=>{
                 return (
