@@ -1,10 +1,10 @@
 "use client"
-
 import { useState, useEffect } from 'react';
 import ImageSlider from "@/components/Home-page-Slider/Slider";
 import ProductTile from "@/components/Product-display/product-display-tile";
 import Link from "next/link";
-import { HomeProps,ProductTileProps } from '@/components/Product-display/product-type';
+import { HomeProps, ProductTileProps } from '@/components/Product-display/product-type';
+
 async function fetchProductData(): Promise<ProductTileProps[]> {
   const res = await fetch("https://fakestoreapi.com/products");
   const data = await res.json();
@@ -23,13 +23,6 @@ export default function Home() {
     fetchData();
   }, []); // Empty dependency array to run the effect only once when the component mounts
 
-  type d={
-    id:number,
-    title:string,
-    price:number,
-    image:string
-  }
-
   return (
     <div className="flex flex-col">
       <section id="home-page-ads">
@@ -37,22 +30,24 @@ export default function Home() {
       </section>
       <section>
         <Link href="/allproducts">
-          <div className="bg-gray-200 flex items-center justify-center  bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 overflow-hidden">
-            <h1 className="text-5xl font-extrabold  p-6  shadow-lg transition-transform duration-300 transform hover:scale-110 "> All Products</h1>
+          <div className="bg-gray-200 flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 overflow-hidden">
+            <h1 className="text-5xl font-extrabold p-6 shadow-lg transition-transform duration-300 transform hover:scale-110 "> All Products</h1>
           </div>
         </Link>
       </section>
-      <section id="All-product-displays" className="grid grid-cols-4 gap-5 p-5">
-        {products.map((product)=> (
+      <div className="flex justify-center">
+      <section id="All-product-displays" className="  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10 p-5">
+        {products.map((product) => (
           <ProductTile
             key={product.id}
             id={product.id}
             title={product.title}
-            price={product.price} // Convert price to string if it's a number
+            price={product.price}
             image={product.image}
           />
         ))}
       </section>
+      </div>
     </div>
   );
 }
