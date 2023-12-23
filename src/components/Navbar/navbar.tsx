@@ -13,6 +13,7 @@ type uis = { Name: string, link: string, Dropdown: xyz[] | null };
 const NavBar: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+  const [LoggedIn, setLoggedIn] = useState<boolean>(false); // New state for login status
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,6 +47,11 @@ const NavBar: React.FC = () => {
       {isMobile && isMenuOpen && (
         <div className="flex flex-col gap-2 p-2">
           {Nvbr.map((ele: uis) => {
+            // Check if the link is "/login" or "/signup" and hide them if not logged in
+            if ((ele.link === "/login" || ele.link === "/signup") && LoggedIn) {
+              return null;
+            }
+
             return (
               <NavItem key={ele.Name} ItemName={ele.Name} link={ele.link} Dropdown={ele.Dropdown} />
             );
@@ -56,6 +62,11 @@ const NavBar: React.FC = () => {
         <div className={`flex justify-between items-center p-1`}>
           <div className={`flex gap-5 ${isMobile ? 'hidden md:flex' : 'md:flex'}`}>
             {Nvbr.map((ele: uis) => {
+              // Check if the link is "/login" or "/signup" and hide them if not logged in
+              if ((ele.link === "/login" || ele.link === "/signup") && LoggedIn) {
+                return null;
+              }
+
               return (
                 <NavItem key={ele.Name} ItemName={ele.Name} link={ele.link} Dropdown={ele.Dropdown} />
               );

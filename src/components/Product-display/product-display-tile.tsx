@@ -12,9 +12,9 @@ const ProductTile = ({ id, title, price, image }: ProductTileProps) => {
 
   return (
     <div className="max-w-xs sm:max-w-full md:max-w-xs lg:max-w-xs xl:max-w-xs">
-      <div className=" flex flex-col items-center justify-center bg-gray-300 border-2 border-black rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+      <div className=" flex flex-col items-center justify-center bg-white border-2 border-black rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
         <div className="relative overflow-hidden w-full h-44 lg:h-60 xl:h-72">
-          <Link href={`/product/${title}`}>
+          <Link href={`/product/${id}`}>
             <Image
               src={image}
               alt="Product Image"
@@ -23,9 +23,10 @@ const ProductTile = ({ id, title, price, image }: ProductTileProps) => {
               className="rounded-t-lg p-6"
             />
           </Link>
+          
         </div>
         <div className="p-4">
-          <Link href={`/product/${title}`}>
+          <Link href={`/product/${id}`}>
             <div className="text-2xl font-bold underline mb-2 line-clamp-2">
               {title}
             </div>

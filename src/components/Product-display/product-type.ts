@@ -5,7 +5,7 @@ type Rating = {
     count: number;
   };
   
-  type Product = {
+ export type AllProductsType = {
     id: number;
     title: string;
     price: number;
