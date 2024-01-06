@@ -13,7 +13,7 @@ type uis = { Name: string, link: string, Dropdown: xyz[] | null };
 const NavBar: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
-  const [LoggedIn, setLoggedIn] = useState<boolean>(false); // New state for login status
+  const [LoggedIn, setLoggStatus] = useState<boolean>(false); // New state for login status
 
   useEffect(() => {
     const handleResize = () => {

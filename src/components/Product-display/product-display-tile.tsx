@@ -1,14 +1,32 @@
-// Import necessary modules
 "use client"
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ProductTileProps } from "./product-type";
-
+import { useState } from "react";
 const ProductTile = ({ id, title, price, image }: ProductTileProps) => {
+  const [LogStatus,setLogStatus]=useState<Boolean>(false);
+
+  // function tst(){
+  //   console.log("pressed tst");
+  //   toast("Event has been created", {
+  //     description: "Sunday, December 03, 2023 at 9:00 AM",
+  //     action: {
+  //       label: "Undo",
+  //       onClick: () => console.log("Undo"),
+  //     },
+  //   })
+  // }
+
   function handleClick() {
-    alert("Product tile button pressed!!");
+    if(!LogStatus){
+      alert("hello");
+    }
+    //implement cart and buy now Login
+    
   }
+
+
 
   return (
     <div className="max-w-xs sm:max-w-full md:max-w-xs lg:max-w-xs xl:max-w-xs">
@@ -45,7 +63,7 @@ const ProductTile = ({ id, title, price, image }: ProductTileProps) => {
           <Button
             id={id.toString()}
             onClick={handleClick}
-            variant="default"
+            variant="outline"
             className="w-full sm:w-1/2 "
           >
             Buy Now

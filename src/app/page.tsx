@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ProductTileProps } from '@/components/Product-display/product-type';
 
 async function fetchProductData(): Promise<ProductTileProps[]> {
-  const res = await fetch("https://fakestoreapi.com/products");
+  const res = await fetch(process.env.NEXT_PUBLIC_PRODUCTS_API);
   const data = await res.json();
   return data;
 }

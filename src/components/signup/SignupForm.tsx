@@ -1,6 +1,5 @@
 "use client";
 
-import { Sun, Github } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   Card,
@@ -14,8 +13,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import Link from "next/link";
 
-// Import statements remain the same as in your original code
-// Import statements remain the same as in your original code
+
 
 export default function Signup() {
     return (
@@ -36,6 +34,10 @@ export default function Signup() {
                 <Input id="lastName" type="text" placeholder="Doe" />
               </div>
             </div>
+            <div>
+              <Label htmlFor="confirmPassword">Mobile Number</Label>
+              <Input id="confirmPassword" type="text" placeholder="Enter Mobile Number" maxLength={10} />
+            </div>
             <div className="grid gap-2 md:grid-cols-2">
               <div>
                 <Label htmlFor="email">Email</Label>
@@ -50,6 +52,7 @@ export default function Signup() {
               <Label htmlFor="confirmPassword">Confirm Password</Label>
               <Input id="confirmPassword" type="password" placeholder="********" />
             </div>
+            
           </CardContent>
           <CardFooter className="flex justify-end">
             <Button className="w-full">Sign Up</Button>
