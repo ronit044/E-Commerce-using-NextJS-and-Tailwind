@@ -7,22 +7,11 @@ import { useState } from "react";
 const ProductTile = ({ id, title, price, image }: ProductTileProps) => {
   const [LogStatus,setLogStatus]=useState<Boolean>(false);
 
-  // function tst(){
-  //   console.log("pressed tst");
-  //   toast("Event has been created", {
-  //     description: "Sunday, December 03, 2023 at 9:00 AM",
-  //     action: {
-  //       label: "Undo",
-  //       onClick: () => console.log("Undo"),
-  //     },
-  //   })
-  // }
 
   function handleClick() {
     if(!LogStatus){
       alert("hello");
     }
-    //implement cart and buy now Login
     
   }
 

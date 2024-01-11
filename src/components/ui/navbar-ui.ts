@@ -14,14 +14,19 @@ const Nvbr: uis[] = [
 
     {
         Name: "Signup",
-        link: "/signup",
+        link: "/Signup",
         Dropdown: null
     },
     {
         Name: "Login",
-        link: "/login",
+        link: "/Login",
         Dropdown: null
     },
 ]
+
+export const getFilteredNvbr = (currentRoute: string) => {
+    return Nvbr.filter((item) => item.link !== currentRoute);
+  };
+
 
 export default Nvbr;

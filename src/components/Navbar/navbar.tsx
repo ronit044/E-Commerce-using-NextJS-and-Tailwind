@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import NavItem from "./navitem";
 import Nvbr from "../ui/navbar-ui";
-
+import { useRouter } from 'next/router';
+import { getFilteredNvbr } from '../ui/navbar-ui';
 type xyz = {
   Name: string,
   link: string,
@@ -14,6 +15,8 @@ const NavBar: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [LoggedIn, setLoggStatus] = useState<boolean>(false); // New state for login status
+  const router = useRouter();
+  let filteredNvbr = getFilteredNvbr(router.pathname);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,9 +26,15 @@ const NavBar: React.FC = () => {
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial check on component mount
 
+    
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+
+    
+  
+  
   }, []);
 
   const handleMenuToggle = () => {
@@ -46,7 +55,7 @@ const NavBar: React.FC = () => {
       )}
       {isMobile && isMenuOpen && (
         <div className="flex flex-col gap-2 p-2">
-          {Nvbr.map((ele: uis) => {
+          {filteredNvbr.map((ele: uis) => {
             // Check if the link is "/login" or "/signup" and hide them if not logged in
             if ((ele.link === "/login" || ele.link === "/signup") && LoggedIn) {
               return null;
@@ -61,7 +70,7 @@ const NavBar: React.FC = () => {
       {!isMobile && (
         <div className={`flex justify-between items-center p-1`}>
           <div className={`flex gap-5 ${isMobile ? 'hidden md:flex' : 'md:flex'}`}>
-            {Nvbr.map((ele: uis) => {
+            {filteredNvbr.map((ele: uis) => {
               // Check if the link is "/login" or "/signup" and hide them if not logged in
               if ((ele.link === "/login" || ele.link === "/signup") && LoggedIn) {
                 return null;

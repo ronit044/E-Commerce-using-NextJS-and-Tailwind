@@ -3,7 +3,9 @@ import { AllProductsType } from "@/components/Product-display/product-type";
 import { useState,useEffect } from "react";
 import Image from "next/image";
 async function fetchProductData(): Promise<AllProductsType[]> {
-    const res = await fetch("https://fakestoreapi.com/products");
+  const apiUrl = process.env.NEXT_PUBLIC_PRODUCTS_API || "";
+
+    const res = await fetch(apiUrl);
     const data = await res.json();
     return data;
 }
